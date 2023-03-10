@@ -1,0 +1,27 @@
+Amanda Yun, akyun, 1903241, pa4
+
+Files Submitted:
+
+Sparse.c - reads a file in and writes it to out, checks the first line to get the size of the matrices number of changeEntries there will be for each matrix
+	creates 2 matrices of the same size, reach each line and changeEntry for the first matrix and then for the second matrix. Calls the necessary calculations and prints it to out.
+	
+Matrix.c - creates a new Matrix and allocates memory for it. Matrix has an array of Lists which contains entries. The List is allocated and the Entries are also allocated. Free matrix calls makeZero() which frees all the entries in each List of the array.
+	Then it frees each empty list and then frees the whole matrix. 
+	changeEntry adds a new entry to the matrix or changes an entry if there is already a value at a certain column and row. Each list in the array of lists represents a row in the matrix and each index in the list represents the column of the row that it's in. changeEntry also deletes and frees an entry if the entry is being changed from a value to 0. 
+	Contains multiple manipulation functions to change the matrix. 
+	scalarMult() multiplies each non zero value by a double
+	sum() adds two entries if both matrices have an entry at that position in the matrix. if not then it just adds the value of one matrix to the new matrix if the other matrix doesn't have a value at that spot.
+	diff() is the same as sum except subtract instead of add the values
+	dotProduct() is a helper function created to make product() easier. It just computes the dot product of two Lists.
+	product() transposes the second matrix first and then calls dotProduct on each row. Frees the transposed list afterwards.
+	equals() checks to see if the matrices and their entries are equal
+	
+Matrix.h - contains all the client functions
+
+MatrixTest.c - tests all the functions in Matrix.c
+List.c - changed from pa1 to return void pointers instead of integers. few unnecessary functions removed. Most of it remained the same.
+List.h - equals and copy were removed
+ListTest.c - tests to see if the pointers are being returned properly
+
+Makefile
+README
